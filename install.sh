@@ -111,10 +111,12 @@ if [ $INSTALL_TMUX -eq 1 ]; then
         fi
     fi
 
-    ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
+    mkdir -p ~/.config/tmux
+    ln -sf ~/dotfiles/.config/tmux/tmux.conf ~/.config/tmux/tmux.conf
+    ln -sf ~/dotfiles/.config/tmux/scripts ~/.config/tmux/scripts
 
-    [ ! -d "$HOME/.tmux/plugins/tpm" ] && \
-        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    [ ! -d "$HOME/.config/tmux/plugins/tpm" ] && \
+        git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 
     echo "tmux 配置安装完成"
 fi
